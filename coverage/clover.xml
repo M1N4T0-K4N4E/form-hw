@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1769762561441" clover="3.2.0">
+  <project timestamp="1769762561442" name="All files">
+    <metrics statements="11" coveredstatements="11" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6" elements="31" coveredelements="31" complexity="0" loc="11" ncloc="11" packages="2" files="4" classes="4"/>
+    <package name="src">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="App.css" path="/home/bob/Desktop/Code/Fullstack/form-hw/src/App.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="App.tsx" path="/home/bob/Desktop/Code/Fullstack/form-hw/src/App.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="8" coveredstatements="8" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
+      <file name="form-result.tsx" path="/home/bob/Desktop/Code/Fullstack/form-hw/src/components/form-result.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+      </file>
+      <file name="form.tsx" path="/home/bob/Desktop/Code/Fullstack/form-hw/src/components/form.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="12" coveredconditionals="12" methods="2" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="32" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="37" count="32" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
