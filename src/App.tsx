@@ -7,6 +7,7 @@ import type { Form } from './types/form';
 
 function App() {
   const [formResultList, setFormResultList] =  useState<Form[]>([]);
+  const [deletedFormList, setDeletedFormList] = useState<Form[]>([]);
 
   return (
     <>
@@ -17,7 +18,31 @@ function App() {
         }}
       />
 
-      <FormResults results={formResultList}/>
+      <FormResults 
+        results={formResultList}
+        onRemove={ (id) => {
+          const removedForm = formResultList.find(form => form.id === id);
+          if (removedForm) {
+            setDeletedFormList([...deletedFormList, removedForm]);
+            setFormResultList(formResultList.filter(form => form.id !== id));
+          }
+        }}
+        buttonText="remove"
+        result="Results"
+      />
+
+      <FormResults 
+        results={deletedFormList}
+        onRemove={ (id) => {
+          const recoveredForm = deletedFormList.find(form => form.id === id);
+          if (recoveredForm) {
+            setFormResultList([...formResultList, recoveredForm]);
+            setDeletedFormList(deletedFormList.filter(form => form.id !== id));
+          }
+        }}
+        buttonText="recover"
+        result="Deleted"
+      />
 
     </> 
   )
