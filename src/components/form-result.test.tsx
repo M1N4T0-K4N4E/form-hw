@@ -1,12 +1,10 @@
-import { beforeEach, describe, expect, it, vi} from 'vitest';
+import { beforeEach, describe, expect, it} from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { FormResults } from './form-result';
 import type { Form } from '../types/form';
-import { useState } from 'react';
 
 
 describe('components/result', () => {
-    const onRemove = vi.fn();
     const mockResults: Form[] = [
             {
                 id: 'abc123',
@@ -28,7 +26,6 @@ describe('components/result', () => {
 
     beforeEach(() => {
         cleanup(); // cleanup DOM
-        vi.clearAllMocks(); // cleanup submit data
     });
 
     it('should display form results correctly', async () => {
@@ -98,7 +95,7 @@ describe('components/result', () => {
                 <FormResults 
                     results={currentResults}
                     onRemove={() => {
-                        // จำลอง Logic การย้ายข้อมูล
+                        // simulate remove logic
                         const item = currentResults.shift();
                         if (item) currentDeleted.push(item);
                     }}
@@ -107,7 +104,11 @@ describe('components/result', () => {
                 />
                 <FormResults
                     results={currentDeleted}
-                    onRemove={onRemove}
+                    onRemove={() => {
+                        // simulate recover logic
+                        const item = currentDeleted.shift();
+                        if (item) currentResults.push(item);
+                    }}
                     buttonText="Recover"
                     result="Deleted"
                 />
@@ -125,13 +126,21 @@ describe('components/result', () => {
             <>
                 <FormResults 
                     results={currentResults}
-                    onRemove={onRemove}
+                    onRemove={() => {
+                        // simulate remove logic
+                        const item = currentResults.shift();
+                        if (item) currentDeleted.push(item);
+                    }}
                     buttonText="Remove"
                     result="Results"
                 />
                 <FormResults
                     results={currentDeleted}
-                    onRemove={onRemove}
+                    onRemove={() => {
+                        // simulate recover logic
+                        const item = currentDeleted.shift();
+                        if (item) currentResults.push(item);
+                    }}
                     buttonText="Recover"
                     result="Deleted"
                 />

@@ -22,10 +22,8 @@ function App() {
         results={formResultList}
         onRemove={ (id) => {
           const removedForm = formResultList.find(form => form.id === id);
-          if (removedForm) {
-            setDeletedFormList([...deletedFormList, removedForm]);
-            setFormResultList(formResultList.filter(form => form.id !== id));
-          }
+          setDeletedFormList([...deletedFormList, removedForm!]);
+          setFormResultList(formResultList.filter(form => form.id !== id));
         }}
         buttonText="remove"
         result="Results"
@@ -35,10 +33,8 @@ function App() {
         results={deletedFormList}
         onRemove={ (id) => {
           const recoveredForm = deletedFormList.find(form => form.id === id);
-          if (recoveredForm) {
-            setFormResultList([...formResultList, recoveredForm]);
-            setDeletedFormList(deletedFormList.filter(form => form.id !== id));
-          }
+          setFormResultList([...formResultList, recoveredForm!]);
+          setDeletedFormList(deletedFormList.filter(form => form.id !== id));
         }}
         buttonText="recover"
         result="Deleted"
