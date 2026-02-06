@@ -87,8 +87,8 @@ describe('components/result', () => {
     });
 
     it('Item should moved from results list to deleted list', async () => {
-        let currentResults = [...mockResults];
-        let currentDeleted = [...mockDeletedResults];
+        const currentResults = [...mockResults];
+        const currentDeleted = [...mockDeletedResults];
 
         const { rerender } = render(
             <>
@@ -156,8 +156,8 @@ describe('components/result', () => {
     });
 
     it('Item should moved from deleted list to result list', async () => {
-        let currentResults = [...mockResults];
-        let currentDeleted = [...mockDeletedResults];
+        const currentResults = [...mockResults];
+        const currentDeleted = [...mockDeletedResults];
 
         const { rerender } = render(
             <>
