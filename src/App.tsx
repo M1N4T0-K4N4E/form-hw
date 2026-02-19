@@ -5,6 +5,7 @@ import { FormInput } from './components/form';
 import { FormResults } from './components/form-result';
 import type { Form } from './types/form';
 import axios from 'axios';
+import { Transaction } from './components/transaction';
 
 function App() {
   const [formResultList, setFormResultList] =  useState<Form[]>([]);
@@ -14,11 +15,11 @@ function App() {
     // return (await axios.get("http://localhost:3003/user/")).data.map(({
     //   createdAt, updatedAt, ...rest}) => rest
     // );
-    return ((await axios.get("http://localhost:3003/user/")));
+    return ((await axios.get("http://localhost:40905/user/")));
   }
 
   const handleFormSubmit = async (data: Form) => {
-    await axios.post("http://localhost:3003/user/", 
+    await axios.post("http://localhost:40905/user/", 
       data,
     {
       headers: {
@@ -28,11 +29,14 @@ function App() {
   }
 
   useEffect(() => {
-    const data = getUserAccount().data;
-    const form: Form = {
-      fullName: data,
-    }
-    console.log(data);
+    const fetchUserAccount = async () => {
+      const data = (await getUserAccount()).data;
+      const form: Form = {
+        fullName: data.fullname,
+      }
+      console.log(data);
+    };
+    fetchUserAccount();
   }, []);
 
   return (
@@ -43,6 +47,8 @@ function App() {
           setFormResultList([...formResultList, form]);
         }}
       />
+
+      <Transaction />
 
       <FormResults 
         results={formResultList}
